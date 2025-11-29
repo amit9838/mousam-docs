@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Quick Start - Mousam</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input type="text" placeholder="Type to search" />
+</div> <!-- end of book-search-input -->
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">Mousam</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="..">Home</a>
+<li class="chapter active" data-path="QUICKSTART/">
+<a href="./">Quick Start</a>
+<li class="chapter" data-path="ARCHITECTURE/">
+<a href="../ARCHITECTURE/">Architecture</a>
+<li class="chapter" data-path="API_INTEGRATION/">
+<a href="../API_INTEGRATION/">API Integration</a>
+<li class="chapter" data-path="DEVELOPER/">
+<a href="../DEVELOPER/">Developer Guide</a>
+<li class="chapter" data-path="INTEGRATION/">
+<a href="../INTEGRATION/">Integration</a>
+<li class="chapter" data-path="DOCUMENTATION_INDEX/">
+<a href="../DOCUMENTATION_INDEX/">Documentation Index</a>
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+<div id="book-search-results">
+<div class="search-noresults">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="quick-start-guide">Quick Start Guide</h1>
+<h2 id="for-end-users">For End Users</h2>
+<h3 id="installation-5-minutes">Installation (5 minutes)</h3>
+<p><strong>Fastest Method - Flathub:</strong></p>
+<pre><code class="language-bash">flatpak install flathub io.github.amit9838.mousam
+flatpak run io.github.amit9838.mousam
+</code></pre>
+<p><strong>Alternative - Snap:</strong></p>
+<pre><code class="language-bash">sudo snap install mousam
+mousam
+</code></pre>
+<p><strong>Alternative - From Package Manager:</strong></p>
+<pre><code class="language-bash"># Ubuntu/Debian
+sudo apt install mousam
+
+# Fedora
+sudo dnf install mousam
+
+# Arch
+sudo pacman -S mousam
+</code></pre>
+<h3 id="first-run">First Run</h3>
+<ol>
+<li><strong>Open Mousam</strong> from applications menu or run <code>mousam</code></li>
+<li><strong>Allow location access</strong> (optional - for geolocation)</li>
+<li><strong>Search your city</strong> or use detected location</li>
+<li><strong>View current weather</strong> - displays instantly if cached, or fetches within 2 seconds</li>
+<li><strong>Explore tabs</strong>:</li>
+<li><strong>Now</strong>: Current conditions</li>
+<li><strong>Hourly</strong>: 24-hour forecast with graphs</li>
+<li><strong>Tomorrow</strong>: Next day weather</li>
+<li><strong>7 Days</strong>: Weekly forecast</li>
+</ol>
+<h3 id="basic-usage">Basic Usage</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Change location</strong></td>
+<td>Click location name in header → Search → Select</td>
+</tr>
+<tr>
+<td><strong>Switch units</strong></td>
+<td>Click °C/°F button in header</td>
+</tr>
+<tr>
+<td><strong>Refresh weather</strong></td>
+<td>Click refresh icon or press Ctrl+R</td>
+</tr>
+<tr>
+<td><strong>View 24h forecast</strong></td>
+<td>Click "Hourly" tab, scroll horizontally</td>
+</tr>
+<tr>
+<td><strong>View settings</strong></td>
+<td>Click menu button (☰) → Preferences</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tips-tricks">Tips &amp; Tricks</h3>
+<pre><code>• Your location is saved automatically
+• Weather updates automatically every 30 minutes
+• Click any weather icon for description details
+• Hover over charts for precise hourly values
+• Dark mode follows your system preferences
+</code></pre>
+<hr />
+<h2 id="for-developers">For Developers</h2>
+<h3 id="quick-development-setup-10-minutes">Quick Development Setup (10 minutes)</h3>
+<pre><code class="language-bash"># 1. Clone repository
+git clone https://github.com/amit9838/mousam.git
+cd mousam
+
+# 2. Install dependencies (Ubuntu/Debian example)
+sudo apt install -y libgtk-4-dev libadwaita-1-dev python3-dev meson ninja-build
+
+# 3. Build
+meson setup builddir
+meson compile -C builddir
+
+# 4. Run
+./builddir/src/mousam/__main__.py
+
+# 5. Or after installing
+meson install -C builddir
+mousam
+</code></pre>
+<h3 id="project-structure-quick-tour">Project Structure Quick Tour</h3>
+<pre><code>mousam/
+├── src/mousam/
+│   ├── app.py              ← Main application
+│   ├── window.py           ← Main window UI
+│   ├── services/           ← Business logic
+│   │   ├── weather_service.py    (fetches weather)
+│   │   ├── api_client.py         (API calls)
+│   │   └── cache.py              (caching)
+│   ├── ui/                 ← User interface
+│   │   ├── pages/          (different views)
+│   │   └── widgets/        (reusable components)
+│   ├── models/             ← Data models
+│   └── utils/              ← Helper utilities
+├── data/
+│   ├── resources.gresource.xml   (resources)
+│   └── ui/                       (UI files)
+└── meson.build             ← Build config
+</code></pre>
+<h3 id="making-your-first-change">Making Your First Change</h3>
+<p><strong>Example: Change app title</strong></p>
+<ol>
+<li><strong>Find the title</strong>:</li>
+</ol>
+<pre><code class="language-bash">grep -r &quot;Mousam&quot; src/
+</code></pre>
+<ol>
+<li><strong>Edit in window.py or app.py</strong>:</li>
+</ol>
+<pre><code class="language-python"># Before:
+self.set_title(&quot;Mousam&quot;)
+
+# After:
+self.set_title(&quot;My Weather App&quot;)
+</code></pre>
+<ol>
+<li><strong>Rebuild &amp; test</strong>:</li>
+</ol>
+<pre><code class="language-bash">meson compile -C builddir
+./builddir/src/mousam/__main__.py
+</code></pre>
+<h3 id="adding-new-weather-metric">Adding New Weather Metric</h3>
+<p><strong>Step-by-step example: Add "feels like" temperature</strong></p>
+<p><strong>1. Data Model</strong> (<code>models/weather.py</code>):</p>
+<pre><code class="language-python">@dataclass
+class CurrentWeather:
+    temperature: float
+    apparent_temperature: float  # Add this
+</code></pre>
+<p><strong>2. API</strong> (<code>services/api_client.py</code>):</p>
+<pre><code class="language-python">HOURLY_VARIABLES = [
+    &quot;temperature_2m&quot;,
+    &quot;apparent_temperature&quot;,  # Add this
+]
+</code></pre>
+<p><strong>3. UI</strong> (<code>ui/widgets/weather_card.py</code>):</p>
+<pre><code class="language-python">self.feels_like_label = Gtk.Label()
+self.feels_like_label.set_text(
+    f&quot;Feels like: {weather.apparent_temperature}°C&quot;
+)
+</code></pre>
+<p><strong>4. Test</strong>:</p>
+<pre><code class="language-bash">meson compile -C builddir
+./builddir/src/mousam/__main__.py
+</code></pre>
+<h3 id="debugging-tips">Debugging Tips</h3>
+<pre><code class="language-bash"># Run with debug output
+MOUSAM_DEBUG=1 mousam
+
+# Run in GDB (with breakpoint on crash)
+gdb python3 -ex &quot;run -m mousam&quot;
+
+# Inspect GTK UI live
+GTK_DEBUG=interactive mousam
+
+# Check what's happening
+strace -e openat mousam 2&gt;&amp;1 | grep config
+</code></pre>
+<h3 id="running-tests">Running Tests</h3>
+<pre><code class="language-bash"># Install test dependencies
+pip install pytest pytest-cov
+
+# Run all tests
+pytest tests/ -v
+
+# Run with coverage
+pytest --cov=src/mousam tests/
+
+# Run specific test
+pytest tests/test_weather_service.py::TestWeatherService::test_fetch -v
+</code></pre>
+<hr />
+<h2 id="architecture-quick-reference">Architecture Quick Reference</h2>
+<h3 id="how-weather-gets-to-your-screen">How Weather Gets to Your Screen</h3>
+<pre><code>1. You click &quot;Delhi&quot;
+   ↓
+2. LocationService finds coordinates (28.6139, 77.2090)
+   ↓
+3. WeatherService checks cache (has fresh data?)
+   ├─ YES → Return immediately (50ms)
+   └─ NO ↓
+4. APIClient sends HTTP request to api.open-meteo.com
+   ↓
+5. Server returns JSON with weather data
+   ↓
+6. Data transformed to Python objects (models)
+   ↓
+7. Cache stores data for next 30 minutes
+   ↓
+8. UI updated with temperature, charts, forecast
+</code></pre>
+<h3 id="key-components">Key Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Does What</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>app.py</strong></td>
+<td>App lifecycle</td>
+<td>src/mousam/app.py</td>
+</tr>
+<tr>
+<td><strong>window.py</strong></td>
+<td>Main window</td>
+<td>src/mousam/window.py</td>
+</tr>
+<tr>
+<td><strong>weather_service.py</strong></td>
+<td>Fetch/cache weather</td>
+<td>services/</td>
+</tr>
+<tr>
+<td><strong>api_client.py</strong></td>
+<td>HTTP requests</td>
+<td>services/</td>
+</tr>
+<tr>
+<td><strong>cache.py</strong></td>
+<td>Local storage</td>
+<td>services/</td>
+</tr>
+<tr>
+<td><strong>Weather model</strong></td>
+<td>Data structure</td>
+<td>models/</td>
+</tr>
+<tr>
+<td><strong>UI widgets</strong></td>
+<td>Display elements</td>
+<td>ui/widgets/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-apis">Key APIs</h3>
+<p><strong>Open-Meteo Forecast API:</strong></p>
+<pre><code>GET https://api.open-meteo.com/v1/forecast
+  ?latitude=28.6&amp;longitude=77.2
+  &amp;hourly=temperature_2m,precipitation
+  &amp;daily=temperature_2m_max,temperature_2m_min
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code class="language-json">{
+  &quot;hourly&quot;: {
+    &quot;time&quot;: [&quot;2025-01-01T00:00&quot;, ...],
+    &quot;temperature_2m&quot;: [25.5, 24.3, ...]
+  },
+  &quot;daily&quot;: {
+    &quot;temperature_2m_max&quot;: [32, 31, ...],
+    &quot;temperature_2m_min&quot;: [18, 17, ...]
+  }
+}
+</code></pre>
+<hr />
+<h2 id="common-tasks-cheat-sheet">Common Tasks Cheat Sheet</h2>
+<h3 id="building">Building</h3>
+<pre><code class="language-bash"># Fresh build
+rm -rf builddir
+meson setup builddir
+meson compile -C builddir
+
+# Quick rebuild (after code changes)
+meson compile -C builddir
+
+# Install after build
+meson install -C builddir
+
+# Run from build dir
+./builddir/src/mousam/__main__.py
+</code></pre>
+<h3 id="testing-quality">Testing &amp; Quality</h3>
+<pre><code class="language-bash"># Format code
+black src/
+
+# Check formatting
+black --check src/
+
+# Lint
+pylint src/mousam
+
+# Type check
+mypy src/mousam
+
+# All checks
+black --check src/ &amp;&amp; pylint src/ &amp;&amp; mypy src/
+</code></pre>
+<h3 id="git-workflow">Git Workflow</h3>
+<pre><code class="language-bash"># Create feature branch
+git checkout -b feature/my-feature
+
+# Make changes and commit
+git add src/mousam/file.py
+git commit -m &quot;Add new feature description&quot;
+
+# Push to fork
+git push origin feature/my-feature
+
+# Create Pull Request on GitHub
+</code></pre>
+<h3 id="debugging">Debugging</h3>
+<pre><code class="language-bash"># Print variable in code
+logger.debug(f&quot;Weather: {weather}&quot;)
+
+# Add breakpoint
+breakpoint()
+
+# Run with debug output
+MOUSAM_DEBUG=1 python3 -m mousam 2&gt;&amp;1 | tee debug.log
+
+# Inspect live UI
+GTK_DEBUG=interactive mousam
+</code></pre>
+<hr />
+<h2 id="useful-resources">Useful Resources</h2>
+<h3 id="for-users">For Users</h3>
+<ul>
+<li><strong>Report bugs</strong>: https://github.com/amit9838/mousam/issues</li>
+<li><strong>Ask questions</strong>: https://github.com/amit9838/mousam/discussions</li>
+<li><strong>Documentation</strong>: README.md in repository</li>
+</ul>
+<h3 id="for-developers_1">For Developers</h3>
+<ul>
+<li><strong>GNOME HIG</strong>: https://developer.gnome.org/hig</li>
+<li><strong>GTK4 Docs</strong>: https://docs.gtk.org/gtk4</li>
+<li><strong>Libadwaita</strong>: https://gnome.pages.gitlab.gnome.org/libadwaita</li>
+<li><strong>Open-Meteo API</strong>: https://open-meteo.com/en/docs</li>
+<li><strong>Meson Docs</strong>: https://mesonbuild.com</li>
+<li><strong>Python PyGObject</strong>: https://pygobject.readthedocs.io</li>
+</ul>
+<h3 id="for-contributors">For Contributors</h3>
+<ul>
+<li><strong>Contribution Guide</strong>: DEVELOPER.md</li>
+<li><strong>Architecture Docs</strong>: ARCHITECTURE.md</li>
+<li><strong>API Docs</strong>: API_INTEGRATION.md</li>
+</ul>
+<hr />
+<h2 id="troubleshooting-quick-fixes">Troubleshooting Quick Fixes</h2>
+<h3 id="module-not-found-errors">"Module not found" errors</h3>
+<pre><code class="language-bash">pip install -r requirements-dev.txt
+</code></pre>
+<h3 id="gtk4-not-found">GTK4 not found</h3>
+<pre><code class="language-bash"># Ubuntu
+sudo apt install libgtk-4-dev
+
+# Fedora
+sudo dnf install gtk4-devel
+
+# Arch
+sudo pacman -S gtk4
+</code></pre>
+<h3 id="meson-not-found">Meson not found</h3>
+<pre><code class="language-bash">pip install meson ninja
+</code></pre>
+<h3 id="portpermission-issues">Port/permission issues</h3>
+<pre><code class="language-bash"># Run in different location
+cd /tmp &amp;&amp; mousam
+
+# Or rebuild
+rm -rf builddir &amp;&amp; meson setup builddir
+</code></pre>
+<h3 id="memoryperformance-issues">Memory/performance issues</h3>
+<pre><code class="language-bash"># Clear cache
+rm -rf ~/.config/mousam/cache
+
+# Restart app
+pkill mousam
+mousam
+</code></pre>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<h3 id="if-youre-a-user">If You're a User</h3>
+<ol>
+<li>✅ Install Mousam from Flathub</li>
+<li>✅ Add your favorite locations</li>
+<li>✅ Explore the UI and features</li>
+<li>✅ Report any issues or feature requests</li>
+<li>✅ Recommend to friends!</li>
+</ol>
+<h3 id="if-youre-a-developer">If You're a Developer</h3>
+<ol>
+<li>✅ Clone the repository</li>
+<li>✅ Build and run locally</li>
+<li>✅ Read ARCHITECTURE.md for system overview</li>
+<li>✅ Make a small change to understand the flow</li>
+<li>✅ Pick an issue to work on</li>
+<li>✅ Submit a Pull Request!</li>
+</ol>
+<hr />
+<h2 id="getting-help">Getting Help</h2>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><strong>README.md</strong> - Overview and installation</li>
+<li><strong>ARCHITECTURE.md</strong> - System design and components</li>
+<li><strong>API_INTEGRATION.md</strong> - Open-Meteo API details</li>
+<li><strong>DEVELOPER.md</strong> - Development setup guide</li>
+<li><strong>INTEGRATION.md</strong> - Complete system overview</li>
+</ul>
+<h3 id="community">Community</h3>
+<ul>
+<li><strong>GitHub Issues</strong>: Report bugs or request features</li>
+<li><strong>GitHub Discussions</strong>: Ask questions</li>
+<li><strong>GitHub Pull Requests</strong>: Submit improvements</li>
+</ul>
+<h3 id="quick-links">Quick Links</h3>
+<ul>
+<li>Repository: https://github.com/amit9838/mousam</li>
+<li>Issue Tracker: https://github.com/amit9838/mousam/issues</li>
+<li>Discussions: https://github.com/amit9838/mousam/discussions</li>
+<li>Flathub: https://flathub.org/en/apps/io.github.amit9838.mousam</li>
+</ul>
+<hr />
+<h2 id="glossary-of-terms">Glossary of Terms</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTK</strong></td>
+<td>GUI toolkit for building interfaces</td>
+</tr>
+<tr>
+<td><strong>Libadwaita</strong></td>
+<td>GNOME UI library built on GTK4</td>
+</tr>
+<tr>
+<td><strong>Meson</strong></td>
+<td>Build system for compiling code</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>Interface to fetch weather data</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Local storage for quick access</td>
+</tr>
+<tr>
+<td><strong>TTL</strong></td>
+<td>Time-to-Live (how long data stays valid)</td>
+</tr>
+<tr>
+<td><strong>GLib</strong></td>
+<td>Core library used by GTK</td>
+</tr>
+<tr>
+<td><strong>PyGObject</strong></td>
+<td>Python bindings for GTK</td>
+</tr>
+<tr>
+<td><strong>Flatpak</strong></td>
+<td>Containerized app distribution</td>
+</tr>
+<tr>
+<td><strong>Open-Meteo</strong></td>
+<td>Free weather API provider</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl+Q</strong></td>
+<td>Quit application</td>
+</tr>
+<tr>
+<td><strong>Ctrl+R</strong></td>
+<td>Refresh weather</td>
+</tr>
+<tr>
+<td><strong>Ctrl+,</strong></td>
+<td>Open preferences</td>
+</tr>
+<tr>
+<td><strong>Ctrl+H</strong></td>
+<td>Show help</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+?</strong></td>
+<td>Keyboard shortcuts</td>
+</tr>
+<tr>
+<td><strong>Alt+Tab</strong></td>
+<td>Switch apps</td>
+</tr>
+<tr>
+<td><strong>Tab</strong></td>
+<td>Navigate UI elements</td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td>Activate button/search</td>
+</tr>
+<tr>
+<td><strong>Escape</strong></td>
+<td>Close dialog/clear search</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tips-for-smooth-experience">Tips for Smooth Experience</h2>
+<pre><code>💡 Keep the app running for instant updates
+💡 Enable auto-refresh for current conditions
+💡 Bookmark your frequent locations
+💡 Check hourly forecast for activity planning
+💡 Use dark mode at night to reduce eye strain
+💡 Allow geolocation for automatic location
+💡 Check weather before outdoor activities
+💡 Report issues to help improve the app
+</code></pre>
+<hr />
+<p><strong>Happy weather checking! 🌤️</strong></p>
+<p><em>Last updated: November 2024</em>
+<em>Mousam v1.4.0 and later</em></p>
+
+
+</section>
+</div> <!-- end of search-noresults -->
+<div class="search-results">
+<div class="has-results">
+
+<h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+<ul class="search-results-list"></ul>
+
+</div> <!-- end of has-results -->
+<div class="no-results">
+
+<h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+</div> <!-- end of no-results -->
+</div> <!-- end of search-results -->
+</div> <!-- end of book-search-results -->
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../search/main.js"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
+</body>
+</html>
