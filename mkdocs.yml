@@ -1,0 +1,13 @@
+site_name: Mousam
+theme:
+  name: gitbook
+
+nav:
+  - Home: index.md
+  # - README: README.md
+  - Quick Start: QUICKSTART.md
+  - Architecture: ARCHITECTURE.md
+  - API Integration: API_INTEGRATION.md
+  - Developer Guide: DEVELOPER.md
+  - Integration: INTEGRATION.md
+  - Documentation Index: DOCUMENTATION_INDEX.md
