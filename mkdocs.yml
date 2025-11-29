@@ -1,6 +1,8 @@
 site_name: Mousam
 theme:
-  name: gitbook
+  name: material
+  logo: assets/mousam.svg
+  favicon: assets/mousam.svg
 
 nav:
   - Home: index.md
